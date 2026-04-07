@@ -245,6 +245,22 @@ footer {
 .impact-card, .donate-card {
     cursor: pointer;
 }
+.preview-text {
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+.full-text {
+    display: none;
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+.see-more-btn {
+    color: #04804c;
+    font-weight: bold;
+    cursor: pointer;
+}
 @media (max-width: 600px) {
     nav {
         flex-direction: row;
@@ -511,34 +527,40 @@ footer {
 <div class="gallery-item">
     <img src="MCADO11.jpg">
 
-    <a href="#" class="view-btn"
-       data-title="Computer Training Session"
-       data-text="MCADO trained youth on computer basics, MS Word, Excel, and digital literacy."
-    >
-    View Activities
-    </a>
+    <p class="preview-text">
+    The drug awareness session with boys focused on life skills, discipline, and resisting peer pressure...
+    <span class="see-more-btn">See more</span>
+</p>
+
+<p class="full-text">
+    The drug awareness session with boys focused on life skills, discipline, resisting peer pressure, and building confidence. Participants engaged in open discussions, mentorship, and real-life storytelling to understand the dangers of substance abuse.
+</p>
 </div>
 
 <div class="gallery-item">
     <img src="MCADO14.jpg">
     
-    <a href="#" class="view-btn"
-       data-title="Community Awareness Campaign"
-       data-text="We conducted drug abuse awareness in Mathare through community outreach programs."
-    >
-     View Activities
-    </a>
+    <p class="preview-text">
+    The drug awareness session with boys focused on life skills, discipline, and resisting peer pressure...
+    <span class="see-more-btn">See more</span>
+</p>
+
+<p class="full-text">
+    The drug awareness session with boys focused on life skills, discipline, resisting peer pressure, and building confidence. Participants engaged in open discussions, mentorship, and real-life storytelling to understand the dangers of substance abuse.
+</p>
 </div>
 
 <div class="gallery-item">
     <img src="MCADO7.jpg">
 
-    <a href="#" class="view-btn"
-       data-title="Youth Mentorship Program"
-       data-text="Youth were guided on career choices, discipline, and personal development."
-    >
-    View Activities
-    </a>
+    <p class="preview-text">
+    The drug awareness session with boys focused on life skills, discipline, and resisting peer pressure...
+    <span class="see-more-btn">See more</span>
+</p>
+
+<p class="full-text">
+    The drug awareness session with boys focused on life skills, discipline, resisting peer pressure, and building confidence. Participants engaged in open discussions, mentorship, and real-life storytelling to understand the dangers of substance abuse.
+</p>
 </div>
 
 </div>
@@ -731,6 +753,21 @@ document.querySelectorAll(".view-btn").forEach(btn => {
 function closeActivity(){
     popup.style.display = "none";
 }
+
+document.querySelectorAll(".see-more-btn").forEach(btn => {
+    btn.addEventListener("click", function() {
+        const preview = this.parentElement;
+        const fullText = preview.nextElementSibling;
+
+        if (fullText.style.display === "block") {
+            fullText.style.display = "none";
+            this.innerText = "See more";
+        } else {
+            fullText.style.display = "block";
+            this.innerText = "See less";
+        }
+    });
+});
 
 
 // ================= DONATE BUTTON =================
